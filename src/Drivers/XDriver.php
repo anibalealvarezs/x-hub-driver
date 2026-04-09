@@ -52,5 +52,30 @@ class XDriver implements SyncDriverInterface
     {
         return null;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getConfigSchema(): array
+    {
+        return [
+            'global' => [
+                'enabled' => true,
+                'cache_history_range' => '30 days',
+                'cache_aggregations' => false,
+            ],
+            'entity' => [
+                'enabled' => true,
+            ]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function validateConfig(array $config): array
+    {
+        return $config;
+    }
 }
 
