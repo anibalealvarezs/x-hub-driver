@@ -40,4 +40,9 @@ class XDriver implements SyncDriverInterface
             'message' => 'X modular driver placeholder executed successfully.'
         ]));
     }
+    public function getApi(array $config = []): mixed
+    {
+        return null;
+    }
 }
+
