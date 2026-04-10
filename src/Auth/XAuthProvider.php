@@ -2,7 +2,7 @@
 
 namespace Anibalealvarezs\XHubDriver\Auth;
 
-use Anibalealvarezs\ApiSkeleton\Interfaces\AuthProviderInterface;
+use Anibalealvarezs\ApiDriverCore\Interfaces\AuthProviderInterface;
 
 class XAuthProvider implements AuthProviderInterface
 {
