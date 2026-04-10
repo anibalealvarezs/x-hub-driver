@@ -86,5 +86,9 @@ class XDriver implements SyncDriverInterface
     {
         // Placeholder for future implementation
     }
+    public function boot(): void
+    {
+    }
 }
+
 
