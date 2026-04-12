@@ -183,6 +183,34 @@ class XDriver implements SyncDriverInterface
     /**
      * @inheritdoc
      */
+    public static function getPageTypes(): array
+    {
+        return [
+            'twitter_profile' => 'Twitter Profile'
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public static function getAccountTypes(): array
+    {
+        return [
+            'twitter_profile' => 'Twitter Profile'
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public static function getEntityPaths(): array
+    {
+        return [];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function initializeEntities(mixed $entityManager, array $config = []): array
     {
         return ['initialized' => 0, 'skipped' => 0];
@@ -202,6 +230,13 @@ class XDriver implements SyncDriverInterface
     }
 
     public function prepareUiConfig(array $channelConfig): array
+    {
+        return [];
+    }
+    /**
+     * @inheritdoc
+     */
+    public function getDateFilterMapping(): array
     {
         return [];
     }
