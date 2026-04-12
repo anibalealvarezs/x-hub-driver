@@ -9,9 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Psr\Log\LoggerInterface;
 use DateTime;
 use Anibalealvarezs\ApiDriverCore\Interfaces\SeederInterface;
+use Anibalealvarezs\ApiDriverCore\Traits\SyncDriverTrait;
 
 class XDriver implements SyncDriverInterface
 {
+    use SyncDriverTrait;
 
     /**
      * Store credentials for this driver.
