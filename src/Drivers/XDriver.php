@@ -139,7 +139,7 @@ class XDriver implements SyncDriverInterface
     {
         return [
             'global' => [
-                'enabled' => true,
+                'enabled' => false,
                 'cache_history_range' => '30 days',
                 'cache_aggregations' => false,
             ],
@@ -154,7 +154,11 @@ class XDriver implements SyncDriverInterface
      */
     public function validateConfig(array $config): array
     {
-        return $config;
+        return \Anibalealvarezs\ApiDriverCore\Services\ConfigSchemaRegistryService::hydrate(
+            $this->getChannel(),
+            'global',
+            $config
+        );
     }
 
     /**
