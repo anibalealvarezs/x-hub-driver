@@ -90,7 +90,6 @@ class XDriver implements SyncDriverInterface
     {
         return null;
     }
-    use HasUpdatableCredentials;
 
     private ?AuthProviderInterface $authProvider = null;
     private ?LoggerInterface $logger = null;
