@@ -10,10 +10,24 @@ use Psr\Log\LoggerInterface;
 use DateTime;
 use Anibalealvarezs\ApiDriverCore\Interfaces\SeederInterface;
 use Anibalealvarezs\ApiDriverCore\Traits\SyncDriverTrait;
+use Anibalealvarezs\ApiDriverCore\Interfaces\CanonicalMetricDictionaryProviderInterface;
+use Anibalealvarezs\ApiDriverCore\Interfaces\AggregationProfileProviderInterface;
+use Anibalealvarezs\ApiDriverCore\Classes\AggregationProfileTemplates;
 
-class XDriver implements SyncDriverInterface
+class XDriver implements SyncDriverInterface, CanonicalMetricDictionaryProviderInterface, AggregationProfileProviderInterface
 {
     use SyncDriverTrait;
+
+    public static function getAggregationProfiles(): array
+    {
+        return [
+            AggregationProfileTemplates::adsHierarchyProfile(
+                channel: 'x',
+                key: 'x_ads',
+                label: 'X Ads Performance'
+            ),
+        ];
+    }
 
     /**
      * Store credentials for this driver.
@@ -219,6 +233,25 @@ class XDriver implements SyncDriverInterface
     public static function getEntityPaths(): array
     {
         return [];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public static function getCanonicalMetricDictionary(): array
+    {
+        return [
+            'spend' => ['spend'],
+            'clicks' => ['clicks'],
+            'impressions' => ['impressions'],
+            'reach' => ['reach'],
+            'conversions' => ['conversion'],
+        ];
+    }
+
+    public static function getPlatformEntityIdField(): string
+    {
+        return 'id';
     }
 
     /**
