@@ -52,6 +52,11 @@ class XAuthProvider implements AuthProviderInterface
 
     public function setAuthProvider(AuthProviderInterface $provider): void {}
 
+    public function hasCredentials(): bool
+    {
+        return !empty($this->getAccessToken());
+    }
+
     public function updateCredentials(array $credentials): void
     {
         $this->credentials = array_merge($this->credentials, $credentials);
