@@ -61,4 +61,17 @@ class XAuthProvider implements AuthProviderInterface
     {
         $this->credentials = array_merge($this->credentials, $credentials);
     }
+
+    /** @var callable|null */
+    protected $tokenRefresherCallback = null;
+
+    public function getTokenRefresherCallback(): ?callable
+    {
+        return $this->tokenRefresherCallback;
+    }
+
+    public function setTokenRefresherCallback(?callable $callback): void
+    {
+        $this->tokenRefresherCallback = $callback;
+    }
 }
